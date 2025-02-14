@@ -304,6 +304,7 @@
         const playPauseBtn = document.getElementById('play-pause');
         const audio = new Audio('audio.mp3'); // Add your music file
         let isPlaying = false;
+        audio.loop = true; // Enable looping
 
         playPauseBtn.addEventListener('click', () => {
             isPlaying = !isPlaying;
