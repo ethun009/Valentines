@@ -305,7 +305,7 @@
         const audio = new Audio('audio.mp3'); // Add your music file
         let isPlaying = false;
         audio.loop = true; // Enable looping
-
+        audio.autoplay = true; // Attempt autoplay
         playPauseBtn.addEventListener('click', () => {
             isPlaying = !isPlaying;
             disk.classList.toggle('playing', isPlaying);
