@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Special</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Galada&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Galada&family=Tiro+Bangla:ital@0;1&display=swap');
+
+        :root {
+            --love-red: #ff4b6e;
+            --love-pink: #ff8fab;
+            --love-white: #fff0f3;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(45deg, var(--love-red), var(--love-pink));
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+
+        @property --angle {
+            syntax: "<angle>";
+            initial-value: 0deg;
+            inherits: false;
+        }
+
+        .image-slider::after,
+        .image-slider::before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-image: conic-gradient(from var(--angle), transparent 50%, var(--love-red));
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            z-index: -1;
+            padding: 5px;
+            border-radius: 10px;
+            animation: 3s spin linear infinite;
+        }
+
+        .image-slider::before {
+            filter: blur(1.5rem);
+
+        }
+
+        @keyframes spin {
+            from {
+                --angle: 0deg;
+            }
+
+            to {
+                --angle: 360deg;
+            }
+        }
+
+        /* Image Slider */
+
+        .image-slider {
+            margin-left: 5vw;
+            top: 10vh;
+            width: 90vw;
+            height: 50vh;
+            position: relative;
+
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Music Player */
+        .song-title {
+            font-family: "Tiro Bangla", serif;
+            font-size: 18px;
+        }
+
+        .music-player {
+            position: fixed;
+            bottom: 30px;
+            left: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--love-white);
+            border-radius: 15px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            backdrop-filter: blur(5px);
+
+        }
+
+        .disk {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid var(--love-white);
+            overflow: hidden;
+            animation: rotate 10s linear infinite;
+            animation-play-state: paused;
+        }
+
+        .disk.playing {
+            animation-play-state: running;
+        }
+
+        .disk img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .music-controls {
+            margin-left: 20px;
+            color: var(--love-white);
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+
+        .controls button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+        }
+
+        .controls img {
+            width: 100%;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Lyrics Container */
+        .lyrics-container {
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--love-white);
+            height: 100px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .lyric-line {
+            font-family: "Galada", serif;
+            position: absolute;
+            width: 100%;
+            font-size: 24px;
+            margin: 0;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: all 0.8s ease-in-out;
+            text-shadow: 0 0 15px var(--love-red), 0 0 25px var(--love-red);
+            will-change: transform, opacity;
+        }
+
+        .lyric-line.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .lyric-line.exit {
+            opacity: 0;
+            transform: translateY(-100%);
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        #prev {
+            rotate: 180deg;
+        }
+
+        @media (min-width: 600px) {
+            .music-player {
+                margin-left: 8%;
+                width: 30%;
+            }
+
+            .music-controls {
+                margin: 0 auto;
+
+            }
+
+            .lyrics-container {
+                position: fixed;
+                top: 50%;
+                left: 75%;
+                transform: translate(-50%, -50%);
+
+            }
+
+            .image-slider {
+                margin-left: 5vw;
+                top: 10vh;
+                width: 40vw;
+                height: 70vh;
+                position: relative;
+
+            }
+
+            .lyric-line {
+
+                font-size: 40px;
+
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Image Slider -->
+
+    <div class="image-slider">
+        <div class="slide active">
+            <img src="image1.jpg" alt="Valentine 1">
+        </div>
+        <div class="slide">
+            <img src="image2.jpg" alt="Valentine 2">
+        </div>
+        <div class="slide">
+            <img src="image3.jpg" alt="Valentine 3">
+        </div>
+    </div>
+
+    <!-- Lyrics Container -->
+    <div class="lyrics-container"></div>
+
+    <!-- Music Player -->
+    <div class="music-player">
+        <div class="disk playing">
+            <img src="disk.png" alt="Album Cover">
+        </div>
+        <div class="music-controls">
+            <h2 class="song-title">"ভালোবাসি" বলে দাও আমায়</h2>
+            <div class="controls">
+                <button id="prev">
+                    <img src="next-button.png" alt="Previous">
+                </button>
+                <button id="play-pause">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2088/2088562.png" alt="Play/Pause">
+                </button>
+                <button id="next">
+                    <img src="next-button.png" alt="Next">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Image Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        setInterval(nextSlide, 4500);
+
+        // Music Player
+        const disk = document.querySelector('.disk');
+        const playPauseBtn = document.getElementById('play-pause');
+        const audio = new Audio('audio.mp3'); // Add your music file
+        let isPlaying = false;
+
+        playPauseBtn.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            disk.classList.toggle('playing', isPlaying);
+            isPlaying ? audio.play() : audio.pause();
+        });
+
+        // Lyrics Data
+        const lyrics = [
+            { text: "হু.ম.ম ..ম..", duration: 4459 },
+            { text: "হু.ম.ম ..ম........", duration: 5379 },
+            { text: "তারারা......আ....", duration: 11174 },
+            { text: "হতে পারে রূপকথার এক দেশের🌟", duration: 5330 },
+            { text: "রাতের আকাশের এক ফালি চাঁদ🌛", duration: 6100 },
+            { text: "তোমার আমার চিরকাল🫂", duration: 9800 },
+            { text: "তুমি-আমি হাতে রেখে হাত🤝", duration: 5180 },
+            { text: "ছুঁয়ে দিয়ে আঙুলে আঙুল...🫰", duration: 6400 },
+            { text: "দেখতে পারো ....কিছু আদুরে সকাল🌄", duration: 10000 },
+            { text: "হতে পারে এ পথের শুরু ..🛣️ ", duration: 5228 },
+            { text: "নিয়ে যাবে আমাদের অজানায়", duration: 5330 },
+            { text: "তুমি-আমি আমাদের পৃথিবী.🌍", duration: 5638 },
+            { text: "সাজিয়ে নিবো ভালোবাসায় ..💖", duration: 8149 },
+            { text: '"ভালোবাসি" বলে দাও আমায় ❤️☺️', duration: 5535 },
+            { text: 'বলে দাও, "হ্যাঁ, সব কবুল" 😅', duration: 5125 },
+            { text: "তুমি শুধু আমারই হবে ☺️", duration: 5485 },
+            { text: "যদি করো মিষ্টি এই ভুল", duration: 5330 },
+            { text: "হাতে হাত রাখতে পারো🤝", duration: 5433 },
+            { text: "সন্ধি আঙুলে আঙুল👉👈", duration: 5230 },
+            { text: "ভালোবাসা বাড়াতে আরও💓", duration: 5330 },
+            { text: "হৃদয় ভীষণ ব্যাকুল", duration: 6509 },
+            { text: "....", duration: 3000 },
+            { text: "....", duration: 3000 },
+            { text: "তারারা....", duration: 14244 },
+            { text: "প্রতিদিন কী জানি কী হয়ে যায় ???", duration: 5023 },
+            { text: "শুধু তোমার কল্পনায় .....ডুবে থাকা..😅", duration: 7278 },
+            { text: "আমায় ভালোলাগায়", duration: 3485 },
+            { text: "ভালোলাগার স্বপ্ন বোনায়", duration: 5074 },
+            { text: "কখনো হারাবে না তুমি", duration: 5638 },
+            { text: "চোখে চোখ রেখে কথা দাও👁️👁️", duration: 5330 },
+            { text: "থাকবে কাছে ছায়ার মত", duration: 5330 },
+            { text: "ছেড়ে যাবে না কোথাও 👉👈🥺", duration: 7893 },
+            { text: "হতে পারে তোমার একটু চাওয়ায়👉👈", duration: 5074 },
+            { text: "এনে দেবো শুকতারা কুড়িয়ে", duration: 5023 },
+            { text: "স্বপ্ন আঁকব চন্দ্র দিয়ে🌕", duration: 5535 },
+            { text: "পূর্ণিমাতে তোমায় বুকে জড়িয়ে.....🌕", duration: 9000 },
+            { text: '"ভালোবাসি" বলে দাও আমায়❤️☺️', duration: 5228 },
+            { text: 'বলে দাও, "হ্যাঁ, সব কবুল"😅', duration: 5638 },
+            { text: "তুমি শুধু আমারই হবে", duration: 5280 },
+            { text: "যদি করো মিষ্টি এই ভুল", duration: 5587 },
+            { text: "হাতে হাত রাখতে পারো", duration: 5176 },
+            { text: "সন্ধি আঙুলে আঙুল", duration: 5280 },
+            { text: "ভালোবাসা বাড়াতে আরও💓", duration: 6381 },
+            { text: "হৃদয় ভীষণ ব্যাকুল", duration: 3000 }
+        ];
+
+        const lyricsContainer = document.querySelector('.lyrics-container');
+        let currentLyricIndex = 0;
+
+        // Show a lyric
+        function showLyric() {
+            // Create new lyric element
+            const lyricElement = document.createElement('div');
+            lyricElement.className = 'lyric-line';
+            lyricElement.textContent = lyrics[currentLyricIndex].text;
+            lyricsContainer.appendChild(lyricElement);
+
+            // Force reflow to enable transition
+            void lyricElement.offsetHeight;
+
+            // Add active class to fade up
+            lyricElement.classList.add('active');
+
+            // Schedule exit animation
+            setTimeout(() => {
+                lyricElement.classList.remove('active');
+                lyricElement.classList.add('exit');
+
+                // Remove lyric after exit animation
+                lyricElement.addEventListener('transitionend', () => {
+                    lyricElement.remove();
+                });
+
+                // Move to next lyric
+                currentLyricIndex = (currentLyricIndex + 1) % lyrics.length;
+                showLyric();
+            }, lyrics[currentLyricIndex].duration);
+        }
+
+        // Start the animation
+        audio.play()
+        showLyric();
+    </script>
+</body>
+
+
+</html>
