@@ -6,13 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valentine's Day Special</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Galada&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Galada&family=Tiro+Bangla:ital@0;1&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Galada&family=Tiro+Bangla:ital@0;1&display=swap');
+        
         @import url('https://fonts.googleapis.com/css2?family=Chewy&family=Dancing+Script:wght@400..700&family=Galada&family=Tiro+Bangla:ital@0;1&display=swap');
-
-
-
 
 
         :root {
@@ -369,7 +364,7 @@
             justify-content: center;
             gap: 2em;
             position: absolute;
-            left: 56%;
+            left: 57%;
             bottom: 7%;
         }
 
@@ -598,9 +593,10 @@
         const timer = setInterval(countUp, 1000);
 
         countUp();
-        // Start the animation
-        audio.play()
-        showLyric();
+        audio.addEventListener('canplaythrough', () => {
+        audio.play(); // Play the audio once it's ready
+        showLyric(); // Start showing lyrics
+    });
     </script>
 </body>
 
