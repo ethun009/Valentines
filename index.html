@@ -8,6 +8,12 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Galada&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Galada&family=Tiro+Bangla:ital@0;1&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Galada&family=Tiro+Bangla:ital@0;1&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Chewy&family=Dancing+Script:wght@400..700&family=Galada&family=Tiro+Bangla:ital@0;1&display=swap');
+
+
+
+
 
         :root {
             --love-red: #ff4b6e;
@@ -64,10 +70,10 @@
         /* Image Slider */
 
         .image-slider {
-            margin-left: 5vw;
-            top: 10vh;
-            width: 90vw;
-            height: 50vh;
+            margin-left: 8vw;
+            top: 4vh;
+            width: 85vw;
+            height: 40vh;
             position: relative;
 
         }
@@ -101,7 +107,7 @@
 
         .music-player {
             position: fixed;
-            bottom: 30px;
+            bottom: 10px;
             left: 20px;
             right: 20px;
             background: rgba(255, 255, 255, 0.1);
@@ -111,6 +117,7 @@
             display: flex;
             align-items: center;
             backdrop-filter: blur(5px);
+            height: 8%;
 
         }
 
@@ -162,7 +169,7 @@
         /* Lyrics Container */
         .lyrics-container {
             position: absolute;
-            top: 75%;
+            top: 52%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
@@ -209,10 +216,83 @@
             rotate: 180deg;
         }
 
+        .headingtime {
+
+            width: 70%;
+            height: 20px;
+            padding: 2em;
+            background-color: #fff;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10%;     
+            position: absolute;
+            top: 53%;
+        }
+
+        .a {
+            font-family: "Chewy", serif;
+            font-size: 2rem;
+
+        }
+
+        .b {
+            font-family: "Chewy", serif;
+
+        }
+
+        .c {
+            
+            width: 80%;
+            font-size: 2rem;
+            position: absolute;
+            left: 5%;
+            top: 66%;
+            color: white;
+            font-family: "Dancing Script", serif;
+        }
+
+        .container {
+            width: 70%;
+            height: 20px;
+            padding: 2em;
+            background-color: #fff;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2em;
+            margin-left: 7%;
+            position: absolute;
+            top: 72%;
+           
+          
+        }
+
+        .container div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .time {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .label {
+            font-size: 1rem;
+        }
+
         @media (min-width: 600px) {
             .music-player {
                 margin-left: 8%;
                 width: 30%;
+                height: 10%;
+
             }
 
             .music-controls {
@@ -222,7 +302,7 @@
 
             .lyrics-container {
                 position: fixed;
-                top: 50%;
+                top: 30%;
                 left: 75%;
                 transform: translate(-50%, -50%);
 
@@ -242,6 +322,74 @@
                 font-size: 40px;
 
             }
+
+            .headingtime {
+            width: 25%;
+            height: 100px;
+            background-color: #fff;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            right: 8%;
+            top: 48%;
+        }
+
+        .a {
+            font-family: "Chewy", serif;
+            font-size: 3rem;
+         
+
+        }
+
+        .b {
+            font-family: "Chewy", serif;
+
+        }
+
+        .c {
+            font-size: 3rem;
+            position: absolute;
+            left: 55%;
+            top: 66%;
+            color: white;
+            font-family: "Dancing Script", serif;
+        }
+
+        .container {
+            width: 25%;
+            height: 100px;
+            padding: 2em;
+            background-color: #fff;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2em;
+            position: absolute;
+            left: 56%;
+            bottom: 7%;
+        }
+
+        .container div {
+            display: flex;
+
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .time {
+            margin: 0;
+            font-size: 3.6rem;
+            font-weight: 200;
+        }
+
+        .label {
+            font-size: 1.2rem;
+        }
+
 
 
         }
@@ -265,6 +413,29 @@
 
     <!-- Lyrics Container -->
     <div class="lyrics-container"></div>
+    <div class="headingtime">
+        <span class="a">NOVEMBER 9 2024</span>
+        <span class="b">THE DAY WE INTRODUCED TOGETHER</span>
+    </div>
+    <span class="c">Since now it has been..... </span>
+    <div class="container">
+        <div>
+            <h3 class="time days">00</h3>
+            <span class="label">Days</span>
+        </div>
+        <div>
+            <h3 class="time hours">00</h3>
+            <span class="label">Hours</span>
+        </div>
+        <div>
+            <h3 class="time minutes">00</h3>
+            <span class="label">Minutes</span>
+        </div>
+        <div>
+            <h3 class="time seconds">00</h3>
+            <span class="label">Seconds</span>
+        </div>
+    </div>
 
     <!-- Music Player -->
     <div class="music-player">
@@ -304,8 +475,7 @@
         const playPauseBtn = document.getElementById('play-pause');
         const audio = new Audio('audio.mp3'); // Add your music file
         let isPlaying = false;
-        audio.loop = true; // Enable looping
-        audio.autoplay = true; // Attempt autoplay
+
         playPauseBtn.addEventListener('click', () => {
             isPlaying = !isPlaying;
             disk.classList.toggle('playing', isPlaying);
@@ -393,6 +563,41 @@
             }, lyrics[currentLyricIndex].duration);
         }
 
+        const daysDis = document.querySelector('.days');
+        const hoursDis = document.querySelector('.hours');
+        const minutesDis = document.querySelector('.minutes');
+        const secondsDis = document.querySelector('.seconds');
+
+        function countUp() {
+            const startTime = new Date("November 9, 2024 00:00:00").getTime(); // Adjust this to your start date
+            const currentTime = new Date().getTime();
+
+            const elapsedTime = currentTime - startTime;  // Time passed since start time
+
+            if (elapsedTime < 0) {
+                // If the start date is in the future, just display 00s
+                daysDis.textContent = "00";
+                hoursDis.textContent = "00";
+                minutesDis.textContent = "00";
+                secondsDis.textContent = "00";
+
+                return;
+            }
+
+            const seconds = 1000;
+            const minutes = seconds * 60;
+            const hours = minutes * 60;
+            const days = hours * 24;
+
+            daysDis.textContent = String(Math.floor(elapsedTime / days)).padStart(2, "0");
+            hoursDis.textContent = String(Math.floor((elapsedTime % days) / hours)).padStart(2, '0');
+            minutesDis.textContent = String(Math.floor((elapsedTime % hours) / minutes)).padStart(2, '0');
+            secondsDis.textContent = String(Math.floor((elapsedTime % minutes) / seconds)).padStart(2, '0');
+        }
+
+        const timer = setInterval(countUp, 1000);
+
+        countUp();
         // Start the animation
         audio.play()
         showLyric();
