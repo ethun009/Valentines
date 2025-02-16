@@ -31,13 +31,13 @@
             inherits: false;
         }
 
-        .image-slider::after,
+       .image-slider::after,
         .image-slider::before {
             content: '';
             position: absolute;
             height: 100%;
             width: 100%;
-            background-image: conic-gradient(from var(--angle), transparent 50%, var(--love-red));
+            background-image: conic-gradient(from var(--angle), var(--love-red) , white );
             top: 50%;
             left: 50%;
             translate: -50% -50%;
@@ -46,7 +46,7 @@
             border-radius: 10px;
             animation: 3s spin linear infinite;
         }
-
+        
         .image-slider::before {
             filter: blur(1.5rem);
 
